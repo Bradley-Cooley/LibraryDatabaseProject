@@ -3,14 +3,14 @@ C:\Users\Brad\documents\visual studio 2017\Projects\LibraryDatabaseProject\Libra
 C:\Users\Brad\documents\visual studio 2017\Projects\LibraryDatabaseProject\LibraryDatabaseProject\bin\Debug\LibraryDatabaseProject.pdb
 C:\Users\Brad\documents\visual studio 2017\Projects\LibraryDatabaseProject\LibraryDatabaseProject\bin\Debug\EntityFramework.dll
 C:\Users\Brad\documents\visual studio 2017\Projects\LibraryDatabaseProject\LibraryDatabaseProject\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Brad\documents\visual studio 2017\Projects\LibraryDatabaseProject\LibraryDatabaseProject\bin\Debug\LinqKit.dll
 C:\Users\Brad\documents\visual studio 2017\Projects\LibraryDatabaseProject\LibraryDatabaseProject\bin\Debug\MySql.Data.dll
 C:\Users\Brad\documents\visual studio 2017\Projects\LibraryDatabaseProject\LibraryDatabaseProject\bin\Debug\MySql.Data.Entity.EF6.dll
 C:\Users\Brad\documents\visual studio 2017\Projects\LibraryDatabaseProject\LibraryDatabaseProject\bin\Debug\EntityFramework.xml
 C:\Users\Brad\documents\visual studio 2017\Projects\LibraryDatabaseProject\LibraryDatabaseProject\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Brad\documents\visual studio 2017\Projects\LibraryDatabaseProject\LibraryDatabaseProject\obj\Debug\LibraryDatabaseProject.csprojResolveAssemblyReference.cache
+C:\Users\Brad\documents\visual studio 2017\Projects\LibraryDatabaseProject\LibraryDatabaseProject\obj\Debug\LibraryDatabaseProject.Form1.resources
 C:\Users\Brad\documents\visual studio 2017\Projects\LibraryDatabaseProject\LibraryDatabaseProject\obj\Debug\LibraryDatabaseProject.Properties.Resources.resources
 C:\Users\Brad\documents\visual studio 2017\Projects\LibraryDatabaseProject\LibraryDatabaseProject\obj\Debug\LibraryDatabaseProject.csproj.GenerateResource.Cache
 C:\Users\Brad\documents\visual studio 2017\Projects\LibraryDatabaseProject\LibraryDatabaseProject\obj\Debug\LibraryDatabaseProject.exe
 C:\Users\Brad\documents\visual studio 2017\Projects\LibraryDatabaseProject\LibraryDatabaseProject\obj\Debug\LibraryDatabaseProject.pdb
-C:\Users\Brad\documents\visual studio 2017\Projects\LibraryDatabaseProject\LibraryDatabaseProject\obj\Debug\LibraryDatabaseProject.Form1.resources
-C:\Users\Brad\documents\visual studio 2017\Projects\LibraryDatabaseProject\LibraryDatabaseProject\bin\Debug\LinqKit.dll
