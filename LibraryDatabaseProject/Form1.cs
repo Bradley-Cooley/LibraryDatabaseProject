@@ -3,11 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LinqKit;
 
 namespace LibraryDatabaseProject
 {
@@ -21,6 +23,8 @@ namespace LibraryDatabaseProject
         {
             selectedItem = SelectedItem.Book;
             InitializeComponent();
+
+            switchToBookView();
 
             genres = new List<string>();
         }
@@ -37,29 +41,23 @@ namespace LibraryDatabaseProject
                 {
                     case SelectedItem.Book:
                         // Basic query
-                        var books = from i in context.items
-                                    join b in context.books on i.item_id equals b.item_id
-                                    where i.Item_title.ToUpper().Contains(title.ToUpper())
-                                    select i;
-
-                        // Apply filters
+                        var books = context.items.Include("book").Where(i => i.Item_title.ToUpper().Contains(title.ToUpper())).Where(i => i.book != null);
                         
-
+                        books = addGenreFilter(books);
 
                         // Execute query
-                        foreach (var book in books)
+                        foreach (var book1 in books)
                         {
-                            DataGridViewRow newRow = (DataGridViewRow)searchResultsGrid.Rows[0].Clone();
-
-                            newRow.Cells[0].Value = book.Item_title;
-
-                            searchResultsGrid.Rows.Add(newRow);
+                            searchResultsGrid.Rows.Add(createBookRow(book1));
                         }
                         break;
+
                     case SelectedItem.Movie:
                         break;
+
                     case SelectedItem.Music:
                         break;
+
                     default:
                         break;
                 }
@@ -93,6 +91,30 @@ namespace LibraryDatabaseProject
                 selectedItem = SelectedItem.Music;
                 switchToMusicView();
             }
+        }
+
+        private IQueryable<item> addGenreFilter(IQueryable<item> query)
+        {
+            var pred = PredicateBuilder.False<item>();
+
+            foreach (var genre in genres)
+            {
+                pred = pred.Or(p => p.genre.Contains(genre));
+            }
+
+            return query.AsExpandable().Where(pred);
+        }
+
+        private DataGridViewRow createBookRow(item newBook)
+        {
+            DataGridViewRow newRow = (DataGridViewRow)searchResultsGrid.Rows[0].Clone();
+
+            newRow.Cells[0].Value = newBook.Item_title;
+            newRow.Cells[1].Value = newBook.genre;
+            newRow.Cells[2].Value = newBook.release_date;
+            newRow.Cells[3].Value = newBook.book.author;
+
+            return newRow;
         }
 
         private void switchToBookView()
@@ -153,6 +175,14 @@ namespace LibraryDatabaseProject
 
             if (e.NewValue == CheckState.Checked)
                 genres.Add(checkedListBox1.Items[e.Index].ToString());
+
+            // TODO: doesn't properly remove genres
+            //DEBUG
+            foreach (var genre in genres){
+                Console.Write(genre + " ; ");
+            }
+
+            Console.WriteLine("");
         }
     }
 }
