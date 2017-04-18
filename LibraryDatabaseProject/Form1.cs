@@ -75,6 +75,7 @@ namespace LibraryDatabaseProject
                     case SelectedItem.Book:
                         // Basic query
                         var books = context.items.Include("book").Where(i => i.Item_title.ToUpper().Contains(title.ToUpper())).Where(i => i.book != null);
+                        //books.Join(b in book_published)
                         //books.Include("book_publishedby");
                         // Apply filters
                         books = addGenreFilter(books);
@@ -274,7 +275,7 @@ namespace LibraryDatabaseProject
             newRow.Cells[1].Value = newBook.genre;
             newRow.Cells[2].Value = newBook.release_date;
             newRow.Cells[3].Value = newBook.book.author;
-            //newRow.Cells[3].Value = newBook.book.pub.publisher.publisher_name;
+            //newRow.Cells[3].Value = newBook.
 
             if (ratingsById.ContainsKey(newBook.item_id))
             {
@@ -525,13 +526,14 @@ namespace LibraryDatabaseProject
         {
             using (var context = new LibraryModel())
             {
+                searchResultsGrid.Rows.Clear();
                 var title = searchTextBox.Text;
 
                 switch (selectedItem)
                 {
                     case SelectedItem.Book:
 
-                        var topRatedBooks = from i in context.items
+                        var topRatedBooks = from i in context.items.ToList()
                                             join b in context.books on i.item_id equals b.item_id
                                             where i.Item_title.Contains(title) && i.ratings.Average(r => r.rating1) > (
 
@@ -540,16 +542,19 @@ namespace LibraryDatabaseProject
                                                     select item.ratings.Average(r => r.rating1)
 
                                             ).Average()
-                                            select b;
-                                            
+                                            select i;
 
+                        foreach (var book in topRatedBooks)
+                        {
+                            searchResultsGrid.Rows.Add(createBookRow(book));
+                        }
 
-                    break;
+                        break;
 
                     case SelectedItem.Movie:
 
-                        var topRatedMovies = from i in context.items
-                                            join m in context.movies on i.item_id equals m.item_id
+                        var topRatedMovies = from i in context.items.ToList()
+                                             join m in context.movies on i.item_id equals m.item_id
                                             where i.Item_title.Contains(title) && i.ratings.Average(r => r.rating1) > (
 
                                                     from item in context.items
@@ -557,14 +562,19 @@ namespace LibraryDatabaseProject
                                                     select item.ratings.Average(r => r.rating1)
 
                                             ).Average()
-                                            select m;
+                                            select i;
+
+                        foreach (var movie in topRatedMovies)
+                        {
+                            searchResultsGrid.Rows.Add(createMovieRow(movie));
+                        }
 
                         break;
 
                     case SelectedItem.Music:
                       
-                        var topRatedMusic = from i in context.items
-                                             join m in context.movies on i.item_id equals m.item_id
+                        var topRatedMusic = from i in context.items.ToList()
+                                             join m in context.musicalbums on i.item_id equals m.item_id
                                              where i.Item_title.Contains(title) && i.ratings.Average(r => r.rating1) > (
 
                                                      from item in context.items
@@ -572,8 +582,13 @@ namespace LibraryDatabaseProject
                                                      select item.ratings.Average(r => r.rating1)
 
                                              ).Average()
-                                             select m;
+                                             select i;
 
+                        foreach (var album in topRatedMusic)
+                        {
+                            searchResultsGrid.Rows.Add(createMusicRow(album));
+                        }
+                        
                         break;
 
                     default:
