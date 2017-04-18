@@ -15,3 +15,23 @@ C:\Users\Brad\documents\visual studio 2017\Projects\LibraryDatabaseProject\Libra
 C:\Users\Brad\documents\visual studio 2017\Projects\LibraryDatabaseProject\LibraryDatabaseProject\obj\Debug\LibraryDatabaseProject.exe
 C:\Users\Brad\documents\visual studio 2017\Projects\LibraryDatabaseProject\LibraryDatabaseProject\obj\Debug\LibraryDatabaseProject.pdb
 C:\Users\Brad\documents\visual studio 2017\Projects\LibraryDatabaseProject\LibraryDatabaseProject\obj\Debug\LibraryDatabaseProject.AddBook.resources
+\\Mac\Home\Documents\LibraryDatabaseProject\LibraryDatabaseProject\bin\Debug\LibraryDatabaseProject.exe.config
+\\Mac\Home\Documents\LibraryDatabaseProject\LibraryDatabaseProject\obj\Debug\LibraryDatabaseProject.exe
+\\Mac\Home\Documents\LibraryDatabaseProject\LibraryDatabaseProject\obj\Debug\LibraryDatabaseProject.pdb
+C:\Users\aaronjedwards\Documents\Visual Studio 2015\LibraryDatabaseProject\LibraryDatabaseProject\bin\Debug\LibraryDatabaseProject.exe.config
+C:\Users\aaronjedwards\Documents\Visual Studio 2015\LibraryDatabaseProject\LibraryDatabaseProject\bin\Debug\LibraryDatabaseProject.exe
+C:\Users\aaronjedwards\Documents\Visual Studio 2015\LibraryDatabaseProject\LibraryDatabaseProject\bin\Debug\LibraryDatabaseProject.pdb
+C:\Users\aaronjedwards\Documents\Visual Studio 2015\LibraryDatabaseProject\LibraryDatabaseProject\bin\Debug\EntityFramework.dll
+C:\Users\aaronjedwards\Documents\Visual Studio 2015\LibraryDatabaseProject\LibraryDatabaseProject\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\aaronjedwards\Documents\Visual Studio 2015\LibraryDatabaseProject\LibraryDatabaseProject\bin\Debug\LinqKit.dll
+C:\Users\aaronjedwards\Documents\Visual Studio 2015\LibraryDatabaseProject\LibraryDatabaseProject\bin\Debug\MySql.Data.dll
+C:\Users\aaronjedwards\Documents\Visual Studio 2015\LibraryDatabaseProject\LibraryDatabaseProject\bin\Debug\MySql.Data.Entity.EF6.dll
+C:\Users\aaronjedwards\Documents\Visual Studio 2015\LibraryDatabaseProject\LibraryDatabaseProject\bin\Debug\EntityFramework.xml
+C:\Users\aaronjedwards\Documents\Visual Studio 2015\LibraryDatabaseProject\LibraryDatabaseProject\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\aaronjedwards\Documents\Visual Studio 2015\LibraryDatabaseProject\LibraryDatabaseProject\obj\Debug\LibraryDatabaseProject.csprojResolveAssemblyReference.cache
+C:\Users\aaronjedwards\Documents\Visual Studio 2015\LibraryDatabaseProject\LibraryDatabaseProject\obj\Debug\LibraryDatabaseProject.AddBook.resources
+C:\Users\aaronjedwards\Documents\Visual Studio 2015\LibraryDatabaseProject\LibraryDatabaseProject\obj\Debug\LibraryDatabaseProject.Form1.resources
+C:\Users\aaronjedwards\Documents\Visual Studio 2015\LibraryDatabaseProject\LibraryDatabaseProject\obj\Debug\LibraryDatabaseProject.Properties.Resources.resources
+C:\Users\aaronjedwards\Documents\Visual Studio 2015\LibraryDatabaseProject\LibraryDatabaseProject\obj\Debug\LibraryDatabaseProject.csproj.GenerateResource.Cache
+C:\Users\aaronjedwards\Documents\Visual Studio 2015\LibraryDatabaseProject\LibraryDatabaseProject\obj\Debug\LibraryDatabaseProject.exe
+C:\Users\aaronjedwards\Documents\Visual Studio 2015\LibraryDatabaseProject\LibraryDatabaseProject\obj\Debug\LibraryDatabaseProject.pdb

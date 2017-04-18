@@ -28,19 +28,175 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.datePicker = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.titleTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.genreComboBox = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.publisherComboBox = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.authorTextBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.insertBookButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // datePicker
+            // 
+            this.datePicker.Location = new System.Drawing.Point(100, 178);
+            this.datePicker.Name = "datePicker";
+            this.datePicker.Size = new System.Drawing.Size(200, 20);
+            this.datePicker.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 185);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Published Date";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(67, 79);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(27, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Title";
+            // 
+            // titleTextBox
+            // 
+            this.titleTextBox.Location = new System.Drawing.Point(100, 72);
+            this.titleTextBox.Name = "titleTextBox";
+            this.titleTextBox.Size = new System.Drawing.Size(200, 20);
+            this.titleTextBox.TabIndex = 3;
+            this.titleTextBox.TextChanged += new System.EventHandler(this.titleTextBox_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(58, 132);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(36, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Genre";
+            // 
+            // genreComboBox
+            // 
+            this.genreComboBox.FormattingEnabled = true;
+            this.genreComboBox.Location = new System.Drawing.Point(100, 124);
+            this.genreComboBox.Name = "genreComboBox";
+            this.genreComboBox.Size = new System.Drawing.Size(200, 21);
+            this.genreComboBox.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(44, 159);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Publisher";
+            // 
+            // publisherComboBox
+            // 
+            this.publisherComboBox.FormattingEnabled = true;
+            this.publisherComboBox.Location = new System.Drawing.Point(100, 151);
+            this.publisherComboBox.Name = "publisherComboBox";
+            this.publisherComboBox.Size = new System.Drawing.Size(200, 21);
+            this.publisherComboBox.TabIndex = 7;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(56, 105);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(38, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Author";
+            // 
+            // authorTextBox
+            // 
+            this.authorTextBox.Location = new System.Drawing.Point(100, 98);
+            this.authorTextBox.Name = "authorTextBox";
+            this.authorTextBox.Size = new System.Drawing.Size(200, 20);
+            this.authorTextBox.TabIndex = 9;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(15, 33);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(132, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "New Book Information";
+            // 
+            // insertBookButton
+            // 
+            this.insertBookButton.Location = new System.Drawing.Point(181, 238);
+            this.insertBookButton.Name = "insertBookButton";
+            this.insertBookButton.Size = new System.Drawing.Size(135, 23);
+            this.insertBookButton.TabIndex = 11;
+            this.insertBookButton.Text = "Add to Database";
+            this.insertBookButton.UseVisualStyleBackColor = true;
+            this.insertBookButton.Click += new System.EventHandler(this.insertBookButton_Click);
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.Location = new System.Drawing.Point(34, 238);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(135, 23);
+            this.cancelButton.TabIndex = 12;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // AddBook
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(913, 463);
+            this.ClientSize = new System.Drawing.Size(339, 287);
+            this.Controls.Add(this.cancelButton);
+            this.Controls.Add(this.insertBookButton);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.authorTextBox);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.publisherComboBox);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.genreComboBox);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.titleTextBox);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.datePicker);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AddBook";
             this.Text = "AddBook";
+            this.Load += new System.EventHandler(this.AddBookLoad);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.DateTimePicker datePicker;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox titleTextBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox genreComboBox;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox publisherComboBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox authorTextBox;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button insertBookButton;
+        private System.Windows.Forms.Button cancelButton;
     }
 }

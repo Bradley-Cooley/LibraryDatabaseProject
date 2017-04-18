@@ -69,6 +69,18 @@
     <Compile Include="AddBook.Designer.cs">
       <DependentUpon>AddBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddMovie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddMovie.Designer.cs">
+      <DependentUpon>AddMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddMusicAlbum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddMusicAlbum.Designer.cs">
+      <DependentUpon>AddMusicAlbum.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\adminuser.cs" />
     <Compile Include="Model\book.cs" />
     <Compile Include="Model\book_publishedby.cs" />
@@ -90,6 +102,12 @@
     <Compile Include="Model\user.cs" />
     <EmbeddedResource Include="AddBook.resx">
       <DependentUpon>AddBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddMovie.resx">
+      <DependentUpon>AddMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddMusicAlbum.resx">
+      <DependentUpon>AddMusicAlbum.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -115,7 +133,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

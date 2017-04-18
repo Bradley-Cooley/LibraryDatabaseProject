@@ -18,5 +18,6 @@ namespace LibraryDatabaseProject
         public int item_id { get; set; }
 
         public virtual item item { get; set; }
+        //public virtual book_publishedby pub { get; set; }
     }
 }
