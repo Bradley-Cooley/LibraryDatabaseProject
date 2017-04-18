@@ -520,5 +520,66 @@ namespace LibraryDatabaseProject
             AddMusicAlbum addMusicForm = new AddMusicAlbum();
             addMusicForm.Show();
         }
+
+        private void getTopRatedButton_Click(object sender, EventArgs e)
+        {
+            using (var context = new LibraryModel())
+            {
+                var title = searchTextBox.Text;
+
+                switch (selectedItem)
+                {
+                    case SelectedItem.Book:
+
+                        var topRatedBooks = from i in context.items
+                                            join b in context.books on i.item_id equals b.item_id
+                                            where i.Item_title.Contains(title) && i.ratings.Average(r => r.rating1) > (
+
+                                                    from item in context.items
+                                                    where item.genre == i.genre
+                                                    select item.ratings.Average(r => r.rating1)
+
+                                            ).Average()
+                                            select b;
+                                            
+
+
+                    break;
+
+                    case SelectedItem.Movie:
+
+                        var topRatedMovies = from i in context.items
+                                            join m in context.movies on i.item_id equals m.item_id
+                                            where i.Item_title.Contains(title) && i.ratings.Average(r => r.rating1) > (
+
+                                                    from item in context.items
+                                                    where item.genre == i.genre
+                                                    select item.ratings.Average(r => r.rating1)
+
+                                            ).Average()
+                                            select m;
+
+                        break;
+
+                    case SelectedItem.Music:
+                      
+                        var topRatedMusic = from i in context.items
+                                             join m in context.movies on i.item_id equals m.item_id
+                                             where i.Item_title.Contains(title) && i.ratings.Average(r => r.rating1) > (
+
+                                                     from item in context.items
+                                                     where item.genre == i.genre
+                                                     select item.ratings.Average(r => r.rating1)
+
+                                             ).Average()
+                                             select m;
+
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+        }
     }
 }
