@@ -508,5 +508,17 @@ namespace LibraryDatabaseProject
             AddBook addBookForm = new AddBook();
             addBookForm.Show();
         }
+
+        private void addNewMovie(object sender, EventArgs e)
+        {
+            AddMovie addMovieForm = new AddMovie();
+            addMovieForm.Show();
+        }
+
+        private void addNewMusic(object sender, EventArgs e)
+        {
+            AddMusicAlbum addMusicForm = new AddMusicAlbum();
+            addMusicForm.Show();
+        }
     }
 }

@@ -195,6 +195,7 @@
             this.Controls.Add(this.datePicker);
             this.Name = "AddMovie";
             this.Text = "AddMovie";
+            this.Load += new System.EventHandler(this.onLoad);
             this.ResumeLayout(false);
             this.PerformLayout();
 

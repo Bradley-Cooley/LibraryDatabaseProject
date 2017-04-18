@@ -660,12 +660,14 @@
             this.newMovieToolStripMenuItem.Name = "newMovieToolStripMenuItem";
             this.newMovieToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newMovieToolStripMenuItem.Text = "New Movie";
+            this.newMovieToolStripMenuItem.Click += new System.EventHandler(this.addNewMovie);
             // 
             // newMusicToolStripMenuItem
             // 
             this.newMusicToolStripMenuItem.Name = "newMusicToolStripMenuItem";
             this.newMusicToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newMusicToolStripMenuItem.Text = "New Music";
+            this.newMusicToolStripMenuItem.Click += new System.EventHandler(this.addNewMusic);
             // 
             // Form1
             // 

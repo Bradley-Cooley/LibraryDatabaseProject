@@ -35,3 +35,5 @@ C:\Users\aaronjedwards\Documents\Visual Studio 2015\LibraryDatabaseProject\Libra
 C:\Users\aaronjedwards\Documents\Visual Studio 2015\LibraryDatabaseProject\LibraryDatabaseProject\obj\Debug\LibraryDatabaseProject.csproj.GenerateResource.Cache
 C:\Users\aaronjedwards\Documents\Visual Studio 2015\LibraryDatabaseProject\LibraryDatabaseProject\obj\Debug\LibraryDatabaseProject.exe
 C:\Users\aaronjedwards\Documents\Visual Studio 2015\LibraryDatabaseProject\LibraryDatabaseProject\obj\Debug\LibraryDatabaseProject.pdb
+C:\Users\aaronjedwards\Documents\Visual Studio 2015\LibraryDatabaseProject\LibraryDatabaseProject\obj\Debug\LibraryDatabaseProject.AddMovie.resources
+C:\Users\aaronjedwards\Documents\Visual Studio 2015\LibraryDatabaseProject\LibraryDatabaseProject\obj\Debug\LibraryDatabaseProject.AddMusicAlbum.resources

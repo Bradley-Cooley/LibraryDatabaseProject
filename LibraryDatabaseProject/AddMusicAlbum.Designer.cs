@@ -60,6 +60,7 @@
             this.cancelButton.TabIndex = 39;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancel);
             // 
             // insertBookButton
             // 
@@ -69,6 +70,7 @@
             this.insertBookButton.TabIndex = 38;
             this.insertBookButton.Text = "Add to Database";
             this.insertBookButton.UseVisualStyleBackColor = true;
+            this.insertBookButton.Click += new System.EventHandler(this.insertMusicAlbum);
             // 
             // artistTextBox
             // 
@@ -172,6 +174,7 @@
             this.Controls.Add(this.datePicker);
             this.Name = "AddMusicAlbum";
             this.Text = "AddMusicAlbum";
+            this.Load += new System.EventHandler(this.onLoad);
             this.ResumeLayout(false);
             this.PerformLayout();
 

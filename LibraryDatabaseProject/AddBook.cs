@@ -36,7 +36,6 @@ namespace LibraryDatabaseProject
         {
 
             //validate fields
-
             //insert new book
 
             int genreIndex = genreComboBox.SelectedIndex;
@@ -48,58 +47,68 @@ namespace LibraryDatabaseProject
             string title = titleTextBox.Text;
             string author = authorTextBox.Text;
             DateTime date = datePicker.Value;
-           
-            using (var context = new LibraryModel())
+
+            if (author == "" || title == "" )
+            {
+                //validation error
+                MessageBox.Show("Please fix invalid input", "Library Database",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            }
+            else
             {
 
-                //INSERT INTO item(item_title, genre)
-                //VALUES([title], [genre]);
-
-                item i = new item
+                using (var context = new LibraryModel())
                 {
-                    genre = g,
-                    Item_title = title,
-                    release_date = date
-                };
 
-                context.items.Add(i);
-                context.SaveChanges();
+                    //INSERT INTO item(item_title, genre)
+                    //VALUES([title], [genre]);
 
-                int id = (from item in context.items
-                         orderby item.item_id descending
-                         select item).FirstOrDefault().item_id;
+                    item i = new item
+                    {
+                        genre = g,
+                        Item_title = title,
+                        release_date = date
+                    };
 
-                //INSERT INTO book(author, item_id)
-                //VALUES([author], (SELECT item_id FROM item ORDER BY item_id DESC LIMIT 1))
+                    context.items.Add(i);
+                    context.SaveChanges();
 
-                book b = new book
-                {
-                    item_id = id,
-                    author = author
-                };
+                    int id = (from item in context.items
+                              orderby item.item_id descending
+                              select item).FirstOrDefault().item_id;
 
-                context.books.Add(b);
+                    //INSERT INTO book(author, item_id)
+                    //VALUES([author], (SELECT item_id FROM item ORDER BY item_id DESC LIMIT 1))
 
-                int pid = (from pub in context.publishers
-                              where pub.publisher_name == p
-                              select pub).First().publisher_id;
+                    book b = new book
+                    {
+                        item_id = id,
+                        author = author
+                    };
 
-                //INSERT INTO book_publishedby(item_id, publisher_id)
-                //VALUES((SELECT item_id FROM item ORDER BY item_id DESC LIMIT 1), [publisherid])
+                    context.books.Add(b);
 
-                book_publishedby published = new book_publishedby
-                {
-                    item_id = id,
-                    publisher_id = pid
-                    
-                };
+                    int pid = (from pub in context.publishers
+                               where pub.publisher_name == p
+                               select pub).First().publisher_id;
 
-                context.book_publishedby.Add(published);
-                context.SaveChanges();
-                context.Dispose();
+                    //INSERT INTO book_publishedby(item_id, publisher_id)
+                    //VALUES((SELECT item_id FROM item ORDER BY item_id DESC LIMIT 1), [publisherid])
+
+                    book_publishedby published = new book_publishedby
+                    {
+                        item_id = id,
+                        publisher_id = pid
+
+                    };
+
+                    context.book_publishedby.Add(published);
+                    context.SaveChanges();
+                    context.Dispose();
+                }
+
+                this.Close();
             }
-
-            this.Close();
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
