@@ -75,7 +75,7 @@ namespace LibraryDatabaseProject
                     case SelectedItem.Book:
                         // Basic query
                         var books = context.items.Include("book").Where(i => i.Item_title.ToUpper().Contains(title.ToUpper())).Where(i => i.book != null);
-
+                        //books.Include("book_publishedby");
                         // Apply filters
                         books = addGenreFilter(books);
 
@@ -274,6 +274,7 @@ namespace LibraryDatabaseProject
             newRow.Cells[1].Value = newBook.genre;
             newRow.Cells[2].Value = newBook.release_date;
             newRow.Cells[3].Value = newBook.book.author;
+            //newRow.Cells[3].Value = newBook.book.pub.publisher.publisher_name;
 
             if (ratingsById.ContainsKey(newBook.item_id))
             {
@@ -502,9 +503,22 @@ namespace LibraryDatabaseProject
             }
         }
 
-        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        private void addNewBook(object sender, EventArgs e)
         {
+            AddBook addBookForm = new AddBook();
+            addBookForm.Show();
+        }
 
+        private void addNewMovie(object sender, EventArgs e)
+        {
+            AddMovie addMovieForm = new AddMovie();
+            addMovieForm.Show();
+        }
+
+        private void addNewMusic(object sender, EventArgs e)
+        {
+            AddMusicAlbum addMusicForm = new AddMusicAlbum();
+            addMusicForm.Show();
         }
     }
 }
