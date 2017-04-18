@@ -78,6 +78,8 @@
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newMovieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newMusicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.getTopRatedButton = new System.Windows.Forms.Button();
+            this.correlatedNestedButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -109,17 +111,17 @@
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 543F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(957, 543);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(808, 543);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.tableLayoutPanel3);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(191, 2);
+            this.panel3.Location = new System.Drawing.Point(162, 2);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(764, 539);
+            this.panel3.Size = new System.Drawing.Size(644, 539);
             this.panel3.TabIndex = 1;
             // 
             // tableLayoutPanel3
@@ -135,7 +137,7 @@
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(764, 539);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(644, 539);
             this.tableLayoutPanel3.TabIndex = 6;
             // 
             // searchResultsGrid
@@ -158,7 +160,7 @@
             this.searchResultsGrid.Margin = new System.Windows.Forms.Padding(2);
             this.searchResultsGrid.Name = "searchResultsGrid";
             this.searchResultsGrid.RowTemplate.Height = 28;
-            this.searchResultsGrid.Size = new System.Drawing.Size(760, 577);
+            this.searchResultsGrid.Size = new System.Drawing.Size(640, 577);
             this.searchResultsGrid.TabIndex = 5;
             // 
             // title
@@ -229,6 +231,10 @@
             // 
             // panel9
             // 
+            this.panel9.BackColor = System.Drawing.Color.White;
+            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel9.Controls.Add(this.correlatedNestedButton);
+            this.panel9.Controls.Add(this.getTopRatedButton);
             this.panel9.Controls.Add(this.searchButton);
             this.panel9.Controls.Add(this.label3);
             this.panel9.Controls.Add(this.searchTextBox);
@@ -236,33 +242,37 @@
             this.panel9.Location = new System.Drawing.Point(2, 2);
             this.panel9.Margin = new System.Windows.Forms.Padding(2);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(760, 65);
+            this.panel9.Size = new System.Drawing.Size(640, 65);
             this.panel9.TabIndex = 5;
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(569, 5);
+            this.searchButton.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.searchButton.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchButton.Location = new System.Drawing.Point(569, 10);
             this.searchButton.Margin = new System.Windows.Forms.Padding(2);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(61, 27);
+            this.searchButton.Size = new System.Drawing.Size(61, 22);
             this.searchButton.TabIndex = 4;
             this.searchButton.Text = "Search";
-            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.UseVisualStyleBackColor = false;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 12);
+            this.label3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(9, 13);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.Size = new System.Drawing.Size(48, 14);
             this.label3.TabIndex = 2;
             this.label3.Text = "Search:";
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(75, 10);
+            this.searchTextBox.Location = new System.Drawing.Point(69, 11);
             this.searchTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(491, 20);
@@ -271,12 +281,14 @@
             // panel4
             // 
             this.panel4.AutoScroll = true;
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.tableLayoutPanel2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(2, 2);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(185, 539);
+            this.panel4.Size = new System.Drawing.Size(156, 539);
             this.panel4.TabIndex = 2;
             // 
             // tableLayoutPanel2
@@ -302,7 +314,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(185, 539);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(154, 537);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // panel8
@@ -319,6 +331,7 @@
             // checkedListBox4
             // 
             this.checkedListBox4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.checkedListBox4.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkedListBox4.FormattingEnabled = true;
             this.checkedListBox4.Items.AddRange(new object[] {
             "0 - 4",
@@ -336,10 +349,12 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(3, 3);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(62, 13);
+            this.label7.Size = new System.Drawing.Size(67, 14);
             this.label7.TabIndex = 2;
             this.label7.Text = "# of Tracks";
             // 
@@ -357,6 +372,7 @@
             // checkedListBox3
             // 
             this.checkedListBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.checkedListBox3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkedListBox3.FormattingEnabled = true;
             this.checkedListBox3.Items.AddRange(new object[] {
             "G",
@@ -374,10 +390,12 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(3, 3);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 13);
+            this.label6.Size = new System.Drawing.Size(76, 14);
             this.label6.TabIndex = 2;
             this.label6.Text = "MPAA Rating";
             // 
@@ -395,6 +413,7 @@
             // checkedListBox1
             // 
             this.checkedListBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.checkedListBox1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkedListBox1.FormattingEnabled = true;
             this.checkedListBox1.Items.AddRange(new object[] {
             "Action",
@@ -433,10 +452,12 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 13);
+            this.label2.Size = new System.Drawing.Size(41, 14);
             this.label2.TabIndex = 0;
             this.label2.Text = "Genre";
             // 
@@ -456,10 +477,12 @@
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
+            this.radioButton3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton3.ForeColor = System.Drawing.Color.Black;
             this.radioButton3.Location = new System.Drawing.Point(5, 62);
             this.radioButton3.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(53, 17);
+            this.radioButton3.Size = new System.Drawing.Size(53, 18);
             this.radioButton3.TabIndex = 3;
             this.radioButton3.Text = "Music";
             this.radioButton3.UseVisualStyleBackColor = true;
@@ -468,10 +491,12 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
+            this.radioButton2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton2.ForeColor = System.Drawing.Color.Black;
             this.radioButton2.Location = new System.Drawing.Point(5, 44);
             this.radioButton2.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(54, 17);
+            this.radioButton2.Size = new System.Drawing.Size(53, 18);
             this.radioButton2.TabIndex = 2;
             this.radioButton2.Text = "Movie";
             this.radioButton2.UseVisualStyleBackColor = true;
@@ -481,10 +506,12 @@
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Checked = true;
+            this.radioButton1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton1.ForeColor = System.Drawing.Color.Black;
             this.radioButton1.Location = new System.Drawing.Point(5, 24);
             this.radioButton1.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(50, 17);
+            this.radioButton1.Size = new System.Drawing.Size(49, 18);
             this.radioButton1.TabIndex = 1;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Book";
@@ -494,10 +521,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(3, 3);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(27, 13);
+            this.label1.Size = new System.Drawing.Size(32, 14);
             this.label1.TabIndex = 0;
             this.label1.Text = "Item";
             // 
@@ -515,6 +544,7 @@
             // checkedListBox2
             // 
             this.checkedListBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.checkedListBox2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkedListBox2.FormattingEnabled = true;
             this.checkedListBox2.Items.AddRange(new object[] {
             "0 - 30 min",
@@ -532,10 +562,12 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(3, 3);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 13);
+            this.label5.Size = new System.Drawing.Size(53, 14);
             this.label5.TabIndex = 2;
             this.label5.Text = "Duration";
             // 
@@ -557,10 +589,12 @@
             // radioButton8
             // 
             this.radioButton8.AutoSize = true;
+            this.radioButton8.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton8.ForeColor = System.Drawing.Color.Black;
             this.radioButton8.Location = new System.Drawing.Point(0, 96);
             this.radioButton8.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(91, 17);
+            this.radioButton8.Size = new System.Drawing.Size(91, 18);
             this.radioButton8.TabIndex = 7;
             this.radioButton8.Text = "1 Star and Up";
             this.radioButton8.UseVisualStyleBackColor = true;
@@ -569,10 +603,12 @@
             // radioButton7
             // 
             this.radioButton7.AutoSize = true;
+            this.radioButton7.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton7.ForeColor = System.Drawing.Color.Black;
             this.radioButton7.Location = new System.Drawing.Point(0, 77);
             this.radioButton7.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(96, 17);
+            this.radioButton7.Size = new System.Drawing.Size(97, 18);
             this.radioButton7.TabIndex = 6;
             this.radioButton7.Text = "2 Stars and Up";
             this.radioButton7.UseVisualStyleBackColor = true;
@@ -582,10 +618,12 @@
             // 
             this.radioButton6.AutoSize = true;
             this.radioButton6.Checked = true;
+            this.radioButton6.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton6.ForeColor = System.Drawing.Color.Black;
             this.radioButton6.Location = new System.Drawing.Point(0, 57);
             this.radioButton6.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(96, 17);
+            this.radioButton6.Size = new System.Drawing.Size(97, 18);
             this.radioButton6.TabIndex = 5;
             this.radioButton6.TabStop = true;
             this.radioButton6.Text = "3 Stars and Up";
@@ -595,10 +633,12 @@
             // radioButton5
             // 
             this.radioButton5.AutoSize = true;
+            this.radioButton5.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton5.ForeColor = System.Drawing.Color.Black;
             this.radioButton5.Location = new System.Drawing.Point(0, 38);
             this.radioButton5.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(96, 17);
+            this.radioButton5.Size = new System.Drawing.Size(97, 18);
             this.radioButton5.TabIndex = 4;
             this.radioButton5.Text = "4 Stars and Up";
             this.radioButton5.UseVisualStyleBackColor = true;
@@ -607,20 +647,24 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(3, 3);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 13);
+            this.label4.Size = new System.Drawing.Size(41, 14);
             this.label4.TabIndex = 2;
             this.label4.Text = "Rating";
             // 
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
+            this.radioButton4.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton4.ForeColor = System.Drawing.Color.Black;
             this.radioButton4.Location = new System.Drawing.Point(0, 18);
             this.radioButton4.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(58, 17);
+            this.radioButton4.Size = new System.Drawing.Size(60, 18);
             this.radioButton4.TabIndex = 3;
             this.radioButton4.Text = "5 Stars";
             this.radioButton4.UseVisualStyleBackColor = true;
@@ -628,13 +672,15 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.White;
+            this.menuStrip1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.adminToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(957, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(808, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -644,6 +690,7 @@
             this.addToolStripMenuItem,
             this.newMovieToolStripMenuItem,
             this.newMusicToolStripMenuItem});
+            this.adminToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
             this.adminToolStripMenuItem.Size = new System.Drawing.Size(41, 22);
             this.adminToolStripMenuItem.Text = "Add";
@@ -651,29 +698,49 @@
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.addToolStripMenuItem.Text = "New Book";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.addNewBook);
             // 
             // newMovieToolStripMenuItem
             // 
             this.newMovieToolStripMenuItem.Name = "newMovieToolStripMenuItem";
-            this.newMovieToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newMovieToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.newMovieToolStripMenuItem.Text = "New Movie";
             this.newMovieToolStripMenuItem.Click += new System.EventHandler(this.addNewMovie);
             // 
             // newMusicToolStripMenuItem
             // 
             this.newMusicToolStripMenuItem.Name = "newMusicToolStripMenuItem";
-            this.newMusicToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newMusicToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.newMusicToolStripMenuItem.Text = "New Music";
             this.newMusicToolStripMenuItem.Click += new System.EventHandler(this.addNewMusic);
+            // 
+            // getTopRatedButton
+            // 
+            this.getTopRatedButton.Location = new System.Drawing.Point(12, 36);
+            this.getTopRatedButton.Name = "getTopRatedButton";
+            this.getTopRatedButton.Size = new System.Drawing.Size(166, 23);
+            this.getTopRatedButton.TabIndex = 5;
+            this.getTopRatedButton.Text = "Get Top Rated";
+            this.getTopRatedButton.UseVisualStyleBackColor = true;
+            this.getTopRatedButton.Click += new System.EventHandler(this.getTopRatedButton_Click);
+            // 
+            // correlatedNestedButton
+            // 
+            this.correlatedNestedButton.Location = new System.Drawing.Point(194, 36);
+            this.correlatedNestedButton.Name = "correlatedNestedButton";
+            this.correlatedNestedButton.Size = new System.Drawing.Size(166, 23);
+            this.correlatedNestedButton.TabIndex = 6;
+            this.correlatedNestedButton.Text = "Do Something";
+            this.correlatedNestedButton.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(957, 567);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(808, 567);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -759,6 +826,8 @@
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newMovieToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newMusicToolStripMenuItem;
+        private System.Windows.Forms.Button correlatedNestedButton;
+        private System.Windows.Forms.Button getTopRatedButton;
     }
 }
 
