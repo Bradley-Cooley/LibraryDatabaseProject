@@ -21,6 +21,8 @@ namespace LibraryDatabaseProject
         List<String> durations;
         List<String> mpaaRatings;
         List<String> numTracks;
+        Dictionary<int, double> ratingsById;
+        double minimumRating;
 
         public Form1()
         {
@@ -33,6 +35,31 @@ namespace LibraryDatabaseProject
             durations = new List<string>();
             mpaaRatings = new List<string>();
             numTracks = new List<string>();
+            ratingsById = new Dictionary<int, double>();
+            minimumRating = 3;
+
+            // Get ratings
+            using (var context = new LibraryModel())
+            {
+                var ratings = from r in context.ratings
+                              //join r in context.ratings on i.item_id equals r.item_id
+                              group r by new
+                              {
+                                  r.item_id
+                              }
+                            into g
+                              select new
+                              {
+                                  Average = g.Average(p => p.rating1),
+                                  g.Key.item_id
+
+                              };
+
+                foreach (var rating in ratings)
+                {
+                    ratingsById.Add(rating.item_id, rating.Average.Value);
+                }
+            }
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -55,7 +82,11 @@ namespace LibraryDatabaseProject
                         // Execute query
                         foreach (var book in books)
                         {
-                            searchResultsGrid.Rows.Add(createBookRow(book));
+                            if ((ratingsById.ContainsKey(book.item_id) && ratingsById[book.item_id] >= minimumRating) ||
+                                    (!ratingsById.ContainsKey(book.item_id)))
+                            {
+                                searchResultsGrid.Rows.Add(createBookRow(book));
+                            }
                         }
                         break;
 
@@ -71,7 +102,11 @@ namespace LibraryDatabaseProject
                         // Execute query
                         foreach (var movie in movies)
                         {
-                            searchResultsGrid.Rows.Add(createMovieRow(movie));
+                            if ((ratingsById.ContainsKey(movie.item_id) && ratingsById[movie.item_id] >= minimumRating) ||
+                                    (!ratingsById.ContainsKey(movie.item_id)))
+                            {
+                                searchResultsGrid.Rows.Add(createMovieRow(movie));
+                            }
                         }
                         break;
 
@@ -86,7 +121,11 @@ namespace LibraryDatabaseProject
                         // Execute query
                         foreach (var album in music)
                         {
-                            searchResultsGrid.Rows.Add(createMusicRow(album));
+                            if ((ratingsById.ContainsKey(album.item_id) && ratingsById[album.item_id] >= minimumRating) ||
+                                (!ratingsById.ContainsKey(album.item_id)))
+                            {
+                                searchResultsGrid.Rows.Add(createMusicRow(album));
+                            }
                         }
                         break;
 
@@ -136,6 +175,20 @@ namespace LibraryDatabaseProject
 
             return query.AsExpandable().Where(pred);
         }
+
+        //private IQueryable<item> addRatingFilter(IQueryable<item> query)
+        //{
+        //    query = query.Join()
+
+        //    /*var pred = PredicateBuilder.False<item>();
+
+        //    foreach (var genre in genres)
+        //    {
+        //        pred = pred.Or(p => p.genre.Contains(genre));
+        //    }
+
+        //    return query.AsExpandable().Where(pred);*/
+        //}
 
 
         private IQueryable<item> addDurationFilter(IQueryable<item> query)
@@ -222,6 +275,15 @@ namespace LibraryDatabaseProject
             newRow.Cells[2].Value = newBook.release_date;
             newRow.Cells[3].Value = newBook.book.author;
 
+            if (ratingsById.ContainsKey(newBook.item_id))
+            {
+                newRow.Cells[10].Value = ratingsById[newBook.item_id];
+            }
+            else
+            {
+                newRow.Cells[10].Value = "N/A";
+            }
+
             return newRow;
         }
 
@@ -236,6 +298,15 @@ namespace LibraryDatabaseProject
             newRow.Cells[6].Value = newMovie.movie.director;
             newRow.Cells[7].Value = newMovie.movie.mpaa_rating;
 
+            if (ratingsById.ContainsKey(newMovie.item_id))
+            {
+                newRow.Cells[10].Value = ratingsById[newMovie.item_id];
+            }
+            else
+            {
+                newRow.Cells[10].Value = "N/A";
+            }
+
             return newRow;
         }
 
@@ -248,6 +319,15 @@ namespace LibraryDatabaseProject
             newRow.Cells[2].Value = newAlbum.release_date;
             newRow.Cells[8].Value = newAlbum.musicalbum.artist;
             newRow.Cells[9].Value = newAlbum.musicalbum.num_of_tracks;
+
+            if (ratingsById.ContainsKey(newAlbum.item_id))
+            {
+                newRow.Cells[10].Value = ratingsById[newAlbum.item_id];
+            }
+            else
+            {
+                newRow.Cells[10].Value = "N/A";
+            }
 
             return newRow;
         }
@@ -268,7 +348,6 @@ namespace LibraryDatabaseProject
             searchResultsGrid.Columns[7].Visible = false;
             searchResultsGrid.Columns[8].Visible = false;
             searchResultsGrid.Columns[9].Visible = false;
-            searchResultsGrid.Columns[10].Visible = false;
 
             // Show/hide sidebar panels
             panel1.Visible = true;
@@ -294,7 +373,6 @@ namespace LibraryDatabaseProject
             searchResultsGrid.Columns[4].Visible = false;
             searchResultsGrid.Columns[8].Visible = false;
             searchResultsGrid.Columns[9].Visible = false;
-            searchResultsGrid.Columns[10].Visible = false;
 
             // Show/hide sidebar panels
             panel1.Visible = true;
@@ -382,6 +460,51 @@ namespace LibraryDatabaseProject
                 numTracks.Add(checkedListBox4.Items[e.Index].ToString());
             else if (e.NewValue == CheckState.Unchecked)
                 numTracks.Remove(checkedListBox4.Items[e.Index].ToString());
+        }
+
+        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton4.Checked)
+            {
+                minimumRating = 5;
+            }
+        }
+
+        private void radioButton5_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton5.Checked)
+            {
+                minimumRating = 4;
+            }
+        }
+
+        private void radioButton6_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton6.Checked)
+            {
+                minimumRating = 3;
+            }
+        }
+
+        private void radioButton7_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton7.Checked)
+            {
+                minimumRating = 2;
+            }
+        }
+
+        private void radioButton8_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton8.Checked)
+            {
+                minimumRating = 1;
+            }
+        }
+
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

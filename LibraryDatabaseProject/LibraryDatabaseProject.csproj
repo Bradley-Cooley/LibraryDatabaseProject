@@ -63,6 +63,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddBook.Designer.cs">
+      <DependentUpon>AddBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\adminuser.cs" />
     <Compile Include="Model\book.cs" />
     <Compile Include="Model\book_publishedby.cs" />
@@ -82,6 +88,9 @@
     <Compile Include="Model\rating.cs" />
     <Compile Include="Model\rents_returns.cs" />
     <Compile Include="Model\user.cs" />
+    <EmbeddedResource Include="AddBook.resx">
+      <DependentUpon>AddBook.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

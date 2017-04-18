@@ -73,6 +73,11 @@
             this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newMovieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newMusicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -86,6 +91,7 @@
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -97,12 +103,12 @@
             this.tableLayoutPanel1.Controls.Add(this.panel3, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 33);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1502, 1038);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1502, 1005);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel3
@@ -111,7 +117,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(300, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1199, 1032);
+            this.panel3.Size = new System.Drawing.Size(1199, 999);
             this.panel3.TabIndex = 1;
             // 
             // tableLayoutPanel3
@@ -126,7 +132,7 @@
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1199, 1032);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1199, 999);
             this.tableLayoutPanel3.TabIndex = 6;
             // 
             // searchResultsGrid
@@ -148,7 +154,7 @@
             this.searchResultsGrid.Location = new System.Drawing.Point(3, 109);
             this.searchResultsGrid.Name = "searchResultsGrid";
             this.searchResultsGrid.RowTemplate.Height = 28;
-            this.searchResultsGrid.Size = new System.Drawing.Size(1193, 920);
+            this.searchResultsGrid.Size = new System.Drawing.Size(1193, 887);
             this.searchResultsGrid.TabIndex = 5;
             // 
             // title
@@ -261,7 +267,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(291, 1032);
+            this.panel4.Size = new System.Drawing.Size(291, 999);
             this.panel4.TabIndex = 2;
             // 
             // tableLayoutPanel2
@@ -286,7 +292,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(291, 1032);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(291, 999);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // panel8
@@ -527,9 +533,9 @@
             this.radioButton8.Name = "radioButton8";
             this.radioButton8.Size = new System.Drawing.Size(133, 24);
             this.radioButton8.TabIndex = 7;
-            this.radioButton8.TabStop = true;
             this.radioButton8.Text = "1 Star and Up";
             this.radioButton8.UseVisualStyleBackColor = true;
+            this.radioButton8.CheckedChanged += new System.EventHandler(this.radioButton8_CheckedChanged);
             // 
             // radioButton7
             // 
@@ -538,13 +544,14 @@
             this.radioButton7.Name = "radioButton7";
             this.radioButton7.Size = new System.Drawing.Size(141, 24);
             this.radioButton7.TabIndex = 6;
-            this.radioButton7.TabStop = true;
             this.radioButton7.Text = "2 Stars and Up";
             this.radioButton7.UseVisualStyleBackColor = true;
+            this.radioButton7.CheckedChanged += new System.EventHandler(this.radioButton7_CheckedChanged);
             // 
             // radioButton6
             // 
             this.radioButton6.AutoSize = true;
+            this.radioButton6.Checked = true;
             this.radioButton6.Location = new System.Drawing.Point(0, 88);
             this.radioButton6.Name = "radioButton6";
             this.radioButton6.Size = new System.Drawing.Size(141, 24);
@@ -552,6 +559,7 @@
             this.radioButton6.TabStop = true;
             this.radioButton6.Text = "3 Stars and Up";
             this.radioButton6.UseVisualStyleBackColor = true;
+            this.radioButton6.CheckedChanged += new System.EventHandler(this.radioButton6_CheckedChanged);
             // 
             // radioButton5
             // 
@@ -560,9 +568,9 @@
             this.radioButton5.Name = "radioButton5";
             this.radioButton5.Size = new System.Drawing.Size(141, 24);
             this.radioButton5.TabIndex = 4;
-            this.radioButton5.TabStop = true;
             this.radioButton5.Text = "4 Stars and Up";
             this.radioButton5.UseVisualStyleBackColor = true;
+            this.radioButton5.CheckedChanged += new System.EventHandler(this.radioButton5_CheckedChanged);
             // 
             // label4
             // 
@@ -580,9 +588,49 @@
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(85, 24);
             this.radioButton4.TabIndex = 3;
-            this.radioButton4.TabStop = true;
             this.radioButton4.Text = "5 Stars";
             this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.adminToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1502, 33);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // adminToolStripMenuItem
+            // 
+            this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addToolStripMenuItem,
+            this.newMovieToolStripMenuItem,
+            this.newMusicToolStripMenuItem});
+            this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(58, 29);
+            this.adminToolStripMenuItem.Text = "Add";
+            // 
+            // addToolStripMenuItem
+            // 
+            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
+            this.addToolStripMenuItem.Text = "New Book";
+            this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
+            // 
+            // newMovieToolStripMenuItem
+            // 
+            this.newMovieToolStripMenuItem.Name = "newMovieToolStripMenuItem";
+            this.newMovieToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
+            this.newMovieToolStripMenuItem.Text = "New Movie";
+            // 
+            // newMusicToolStripMenuItem
+            // 
+            this.newMusicToolStripMenuItem.Name = "newMusicToolStripMenuItem";
+            this.newMusicToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
+            this.newMusicToolStripMenuItem.Text = "New Music";
             // 
             // Form1
             // 
@@ -590,6 +638,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1502, 1038);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -612,6 +662,8 @@
             this.panel6.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -664,6 +716,11 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newMovieToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newMusicToolStripMenuItem;
     }
 }
 
