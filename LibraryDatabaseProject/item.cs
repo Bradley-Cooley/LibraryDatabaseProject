@@ -17,7 +17,6 @@ namespace LibraryDatabaseProject
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int item_id { get; set; }
 
         [Column(TypeName = "char")]

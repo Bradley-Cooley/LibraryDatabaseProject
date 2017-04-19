@@ -82,6 +82,27 @@ namespace LibraryDatabaseProject
 
                     context.movies.Add(m);
                     context.SaveChanges();
+
+                    var moviesWithGenre = from item in context.items
+                                         join mv in context.movies on item.item_id equals mv.item_id
+                                         group item.item_id by item.genre into group1
+                                         select new
+                                         {
+                                             count = group1.Count(),
+                                             genre = group1.Key
+
+                                         };
+
+                    string message = "____________________________\n\n";
+                    foreach (var selectedGenre in moviesWithGenre)
+                    {
+                        message = message + selectedGenre.genre + "(" + selectedGenre.count + ")\n";
+                    }
+
+
+                    MessageBox.Show("You've added '" + title + "'.\nThis movie has been added into the genre '" + genre + "'.\n" + message, "Library Database",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
                     context.Dispose();
 
                 }
