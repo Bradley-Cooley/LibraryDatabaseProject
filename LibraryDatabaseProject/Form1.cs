@@ -24,6 +24,8 @@ namespace LibraryDatabaseProject
         Dictionary<int, double> ratingsById;
         double minimumRating;
 
+        public static bool isAdmin;
+
         public Form1()
         {
             selectedItem = SelectedItem.Book;
@@ -38,9 +40,23 @@ namespace LibraryDatabaseProject
             ratingsById = new Dictionary<int, double>();
             minimumRating = 3;
 
+            if (!isAdmin)
+            {
+                this.MainMenuStrip.Hide();
+            }
+
             // Get ratings
             using (var context = new LibraryModel())
             {
+                //GROUP BY AGGREGATE QUERY
+                //========================
+
+                //Select avg(r.rating) , i.item_title
+                //from Rating r
+                //join item i on i.item_id = r.item_id
+                //group by r.item_id
+                //HAVING avg(r.rating) > UserAverage
+
                 var ratings = from r in context.ratings
                               //join r in context.ratings on i.item_id equals r.item_id
                               group r by new
@@ -81,7 +97,7 @@ namespace LibraryDatabaseProject
                         books = addGenreFilter(books);
 
                         // Execute query
-                        foreach (var book in books)
+                        foreach (var book in books.ToList())
                         {
                             if ((ratingsById.ContainsKey(book.item_id) && ratingsById[book.item_id] >= minimumRating) ||
                                     (!ratingsById.ContainsKey(book.item_id)))
@@ -101,7 +117,7 @@ namespace LibraryDatabaseProject
                         movies = addMpaaRatingsFilter(movies);
 
                         // Execute query
-                        foreach (var movie in movies)
+                        foreach (var movie in movies.ToList())
                         {
                             if ((ratingsById.ContainsKey(movie.item_id) && ratingsById[movie.item_id] >= minimumRating) ||
                                     (!ratingsById.ContainsKey(movie.item_id)))
@@ -120,7 +136,7 @@ namespace LibraryDatabaseProject
                         music = addNumTracksFilter(music);
 
                         // Execute query
-                        foreach (var album in music)
+                        foreach (var album in music.ToList())
                         {
                             if ((ratingsById.ContainsKey(album.item_id) && ratingsById[album.item_id] >= minimumRating) ||
                                 (!ratingsById.ContainsKey(album.item_id)))
@@ -275,7 +291,7 @@ namespace LibraryDatabaseProject
             newRow.Cells[1].Value = newBook.genre;
             newRow.Cells[2].Value = newBook.release_date;
             newRow.Cells[3].Value = newBook.book.author;
-            //newRow.Cells[3].Value = newBook.
+            newRow.Cells[4].Value = newBook.book.book_publishedby.publisher.publisher_name;
 
             if (ratingsById.ContainsKey(newBook.item_id))
             {
@@ -531,11 +547,28 @@ namespace LibraryDatabaseProject
 
                 switch (selectedItem)
                 {
+                    //CORRELATED NESTED QUERY
+                    //==========================
+
+                    //select i.Item_title , avg(r.rating) as aRating, i.genre
+                    //from item i, rating r
+                    //where i.item_id = r.item_id
+                    //group by i.item_id
+                    //having
+                    //(aRating >
+                    //              (select avg(rating.rating)
+                    //                from rating, item i2
+                    //                where rating.item_id = i2.item_id
+                    //                &&
+                    //                i2.genre = i.genre
+                    //                group by i2.genre)
+                    //                );
+
                     case SelectedItem.Book:
 
                         var topRatedBooks = from i in context.items.ToList()
                                             join b in context.books on i.item_id equals b.item_id
-                                            where i.Item_title.Contains(title) && i.ratings.Average(r => r.rating1) > (
+                                            where i.ratings.Average(r => r.rating1) > (
 
                                                     from item in context.items
                                                     where item.genre == i.genre

@@ -15,6 +15,8 @@ namespace LibraryDatabaseProject
 
         public int? publisher_id { get; set; }
 
+        public virtual book book { get; set; }
+
         public virtual publisher publisher { get; set; }
     }
 }

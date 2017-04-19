@@ -75,6 +75,27 @@ namespace LibraryDatabaseProject
 
                     context.musicalbums.Add(m);
                     context.SaveChanges();
+
+                    var musicWithGenre = from item in context.items
+                                          join music in context.musicalbums on item.item_id equals music.item_id
+                                          group item.item_id by item.genre into group1
+                                          select new
+                                          {
+                                              count = group1.Count(),
+                                              genre = group1.Key
+
+                                          };
+
+                    string message = "____________________________\n\n";
+                    foreach (var selectedGenre in musicWithGenre)
+                    {
+                        message = message + selectedGenre.genre + "(" + selectedGenre.count + ")\n";
+                    }
+
+
+                    MessageBox.Show("You've added '" + title + "'.\nThis music album has been added into the genre '" + genre + "'.\n" + message, "Library Database",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
                     context.Dispose();
 
                 }

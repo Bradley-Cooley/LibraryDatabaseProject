@@ -21,6 +21,7 @@ namespace LibraryDatabaseProject
         public virtual DbSet<publisher> publishers { get; set; }
         public virtual DbSet<rating> ratings { get; set; }
         public virtual DbSet<rents_returns> rents_returns { get; set; }
+        public virtual DbSet<sys_config> sys_config { get; set; }
         public virtual DbSet<user> users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -36,6 +37,10 @@ namespace LibraryDatabaseProject
             modelBuilder.Entity<book>()
                 .Property(e => e.author)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<book>()
+                .HasOptional(e => e.book_publishedby)
+                .WithRequired(e => e.book);
 
             modelBuilder.Entity<item>()
                 .Property(e => e.Item_title)
@@ -78,6 +83,18 @@ namespace LibraryDatabaseProject
 
             modelBuilder.Entity<publisher>()
                 .Property(e => e.publisher_name)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<sys_config>()
+                .Property(e => e.variable)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<sys_config>()
+                .Property(e => e.value)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<sys_config>()
+                .Property(e => e.set_by)
                 .IsUnicode(false);
 
             modelBuilder.Entity<user>()

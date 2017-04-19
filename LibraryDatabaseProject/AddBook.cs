@@ -56,7 +56,6 @@ namespace LibraryDatabaseProject
             }
             else
             {
-
                 using (var context = new LibraryModel())
                 {
 
@@ -104,6 +103,26 @@ namespace LibraryDatabaseProject
 
                     context.book_publishedby.Add(published);
                     context.SaveChanges();
+
+                    var booksWithGenre = from item in context.items
+                                         join bk in context.books on item.item_id equals bk.item_id
+                                         group item.item_id by item.genre into group1
+                                         select new {
+                                             count = group1.Count(),
+                                             genre = group1.Key
+
+                                         };
+
+                    string message = "____________________________\n\n";
+                    foreach(var selectedGenre in booksWithGenre)
+                    {
+                        message = message + selectedGenre.genre + "(" + selectedGenre.count + ")\n";
+                    }
+
+
+                    MessageBox.Show("You've added '" + title + "'.\nThis book has been added into the genre '" + g + "'.\n" + message, "Library Database",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
                     context.Dispose();
                 }
 
