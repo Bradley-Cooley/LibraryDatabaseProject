@@ -79,7 +79,6 @@
             this.newMovieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newMusicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.getTopRatedButton = new System.Windows.Forms.Button();
-            this.correlatedNestedButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -233,7 +232,6 @@
             // 
             this.panel9.BackColor = System.Drawing.Color.White;
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel9.Controls.Add(this.correlatedNestedButton);
             this.panel9.Controls.Add(this.getTopRatedButton);
             this.panel9.Controls.Add(this.searchButton);
             this.panel9.Controls.Add(this.label3);
@@ -718,22 +716,13 @@
             // 
             // getTopRatedButton
             // 
-            this.getTopRatedButton.Location = new System.Drawing.Point(12, 36);
+            this.getTopRatedButton.Location = new System.Drawing.Point(464, 36);
             this.getTopRatedButton.Name = "getTopRatedButton";
             this.getTopRatedButton.Size = new System.Drawing.Size(166, 23);
             this.getTopRatedButton.TabIndex = 5;
             this.getTopRatedButton.Text = "Get Top Rated";
             this.getTopRatedButton.UseVisualStyleBackColor = true;
             this.getTopRatedButton.Click += new System.EventHandler(this.getTopRatedButton_Click);
-            // 
-            // correlatedNestedButton
-            // 
-            this.correlatedNestedButton.Location = new System.Drawing.Point(194, 36);
-            this.correlatedNestedButton.Name = "correlatedNestedButton";
-            this.correlatedNestedButton.Size = new System.Drawing.Size(166, 23);
-            this.correlatedNestedButton.TabIndex = 6;
-            this.correlatedNestedButton.Text = "Do Something";
-            this.correlatedNestedButton.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -826,7 +815,6 @@
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newMovieToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newMusicToolStripMenuItem;
-        private System.Windows.Forms.Button correlatedNestedButton;
         private System.Windows.Forms.Button getTopRatedButton;
     }
 }
