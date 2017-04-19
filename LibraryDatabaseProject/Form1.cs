@@ -185,6 +185,9 @@ namespace LibraryDatabaseProject
         {
             var pred = PredicateBuilder.False<item>();
 
+            if (genres.Count == 0)
+                return query;
+
             foreach (var genre in genres)
             {
                 pred = pred.Or(p => p.genre.Contains(genre));
@@ -211,6 +214,9 @@ namespace LibraryDatabaseProject
         private IQueryable<item> addDurationFilter(IQueryable<item> query)
         {
             var pred = PredicateBuilder.False<item>();
+
+            if (durations.Count == 0)
+                return query;
 
             foreach (var duration in durations)
             {
@@ -243,6 +249,9 @@ namespace LibraryDatabaseProject
         {
             var pred = PredicateBuilder.False<item>();
 
+            if (mpaaRatings.Count == 0)
+                return query;
+
             foreach (var rating in mpaaRatings)
             {
                 pred = pred.Or(p => p.movie.mpaa_rating.Equals(rating));
@@ -254,6 +263,9 @@ namespace LibraryDatabaseProject
         private IQueryable<item> addNumTracksFilter(IQueryable<item> query)
         {
             var pred = PredicateBuilder.False<item>();
+
+            if (numTracks.Count == 0)
+                return query;
 
             foreach (var num in numTracks)
             {

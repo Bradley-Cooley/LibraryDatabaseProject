@@ -32,12 +32,9 @@ namespace LibraryDatabaseProject
 
                     if(userId != null)
                     {
-                        
-                        Form1.isAdmin = false;
-                        Form1 form = new Form1();
-                        form.Show();
-
-                    }else
+                        showMainForm(false);
+                    }
+                    else
                     {
                         MessageBox.Show("No User Found with given User ID", "Library Database",
                         MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
@@ -66,11 +63,7 @@ namespace LibraryDatabaseProject
 
                     if (userId != null)
                     {
-                        
-                        Form1.isAdmin = true;
-                        Form1 form = new Form1();
-                        form.Show();
-
+                        showMainForm(true);
                     }
                     else
                     {
@@ -85,6 +78,15 @@ namespace LibraryDatabaseProject
                 MessageBox.Show("No User Found with given User ID", "Library Database",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             }
+        }
+
+        private void showMainForm(bool isAdmin)
+        {
+            this.Hide();
+            Form1.isAdmin = isAdmin;
+            Form1 form = new Form1();
+            form.Closed += (s, args) => this.Close();
+            form.Show();
         }
     }
 }
